@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1026566966531",
+    "project_id": "tuduu-73ae0",
+    "storage_bucket": "tuduu-73ae0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1026566966531:android:3101fbb0ebd353cfc1ed36",
+        "android_client_info": {
+          "package_name": "com.astropawlabs.tuduu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDG1lk1XcbvDNk8z2C_jD_zOb2dcDHWavM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
