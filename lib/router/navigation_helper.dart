@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tuduu/pages/root/root_page.dart';
+import 'package:tuduu/pages/task/task_page.dart';
 import 'package:tuduu/router/get_page.dart';
 import 'package:tuduu/router/paths.dart';
 
@@ -40,7 +41,7 @@ class NavigationHelper {
               GoRoute(
                 path: Paths.taskPath,
                 pageBuilder: (context, state) => getPage(
-                  child: const Center(child: Text('Task Page')),
+                  child: const TaskPage(),
                   state: state,
                 ),
               )
