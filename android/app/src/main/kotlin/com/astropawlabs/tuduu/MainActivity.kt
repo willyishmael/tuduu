@@ -1,4 +1,4 @@
-package com.example.tuduu
+package com.astropawlabs.tuduu
 
 import io.flutter.embedding.android.FlutterActivity
 
