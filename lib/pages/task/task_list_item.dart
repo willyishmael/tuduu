@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:tuduu/model/task.dart';
 
 class TaskListItem extends StatefulWidget {
-  const TaskListItem({super.key});
+  final Task task;
+
+  const TaskListItem({
+    super.key,
+    required this.task,
+  });
 
   @override
   State<TaskListItem> createState() => _TaskListItemState();
@@ -36,7 +42,7 @@ class _TaskListItemState extends State<TaskListItem> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Task Title',
+                  widget.task.description,
                   style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         fontWeight: FontWeight.bold,
                       ),

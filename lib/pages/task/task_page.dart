@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tuduu/model/task.dart';
 import 'package:tuduu/pages/task/task_list_item.dart';
 
 class TaskPage extends StatefulWidget {
@@ -9,6 +10,11 @@ class TaskPage extends StatefulWidget {
 }
 
 class _TaskPageState extends State<TaskPage> {
+  Task task = Task(
+    id: "1",
+    description: "description",
+  );
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -28,7 +34,7 @@ class _TaskPageState extends State<TaskPage> {
           child: ListView.builder(
             itemCount: 5,
             itemBuilder: (context, index) {
-              return const TaskListItem();
+              return TaskListItem(task: task);
             },
           ),
         )
