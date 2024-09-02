@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tuduu/model/task.dart';
+import 'package:tuduu/data/model/task.dart';
 
 class TaskListItem extends StatefulWidget {
   final Task task;

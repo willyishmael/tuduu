@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:tuduu/model/task.dart';
+import 'package:tuduu/data/model/task.dart';
 
 sealed class TaskState extends Equatable {
   const TaskState();
