@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tuduu/data/model/task.dart';
 import 'package:tuduu/pages/task/cubit/task_state.dart';
 import 'package:tuduu/repository/tasks/tasks_repository_protocol.dart';
 
@@ -8,14 +7,14 @@ class TaskCubit extends Cubit<TaskState> {
 
   TaskCubit({required this.tasksRepository}) : super(TaskInitialState());
 
-  void loadTasks() async {
+  Future<void> loadTasks(String userId) async {
     emit(TaskLoadingState());
-    try {
-      // Simulate loading tasks from a repository
-      List<Task> tasks = []; // Fetch or generate your tasks
-      emit(TaskLoadedState(tasks: tasks));
-    } catch (e) {
-      emit(const TaskErrorState(errorMessage: 'Failed to load tasks'));
-    }
+
+    final result = await tasksRepository.readTaskCollection(userId);
+
+    result.fold(
+      (error) => emit(TaskErrorState(errorMessage: error.toString())),
+      (tasks) => emit(TaskLoadedState(tasks: tasks)),
+    );
   }
 }

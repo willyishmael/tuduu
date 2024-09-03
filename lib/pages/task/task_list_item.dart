@@ -14,8 +14,6 @@ class TaskListItem extends StatefulWidget {
 }
 
 class _TaskListItemState extends State<TaskListItem> {
-  bool? _checked = false;
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,10 +27,10 @@ class _TaskListItemState extends State<TaskListItem> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Checkbox.adaptive(
-            value: _checked,
+            value: widget.task.checked,
             onChanged: (bool? value) {
               setState(() {
-                _checked = value;
+                widget.task.checked = value ?? false;
               });
             },
           ),

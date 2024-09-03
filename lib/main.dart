@@ -1,10 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:tuduu/router/navigation_helper.dart';
 import 'util.dart';
 import 'theme.dart';
 
-void main() {
+void main() async {
   NavigationHelper.instance;
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const Tuduu());
 }
 

@@ -28,6 +28,15 @@ class Task {
       subtasks.removeAt(index);
     }
   }
+
+  factory Task.fromMap(Map<String, dynamic> map, String documentId) {
+    return Task(
+      id: documentId,
+      description: map['description'] as String,
+      checked: map['checked'] as bool,
+      subtasks: []
+    );
+  }
 }
 
 class Subtask {

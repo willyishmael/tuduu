@@ -41,7 +41,7 @@ class NavigationHelper {
               GoRoute(
                 path: Paths.taskPath,
                 pageBuilder: (context, state) => getPage(
-                  child: const TaskPage(),
+                  child: TaskPage(),
                   state: state,
                 ),
               )
