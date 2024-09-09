@@ -5,6 +5,7 @@ import 'package:tuduu/pages/task/cubit/task_cubit.dart';
 import 'package:tuduu/pages/task/cubit/task_state.dart';
 import 'package:tuduu/pages/task/task_list_item.dart';
 import 'package:tuduu/repository/tasks/tasks_repository.dart';
+import 'dart:developer' as dev;
 
 class TaskPage extends StatefulWidget {
   final TaskCubit taskCubit = TaskCubit(
@@ -45,8 +46,10 @@ class _TaskPageState extends State<TaskPage> {
             child: BlocBuilder<TaskCubit, TaskState>(
               builder: (context, state) {
                 if (state is TaskLoadingState) {
+                  dev.log('@TaskLoadingState');
                   return const Center(child: CircularProgressIndicator());
                 } else if (state is TaskLoadedState) {
+                  dev.log('@TaskLoadedState');
                   return ListView.builder(
                     itemCount: state.tasks.length,
                     itemBuilder: (context, index) {
@@ -55,9 +58,8 @@ class _TaskPageState extends State<TaskPage> {
                     },
                   );
                 } else if (state is TaskErrorState) {
-                  return Center(
-                      child:
-                          Text('Failed to load tasks: ${state.errorMessage}'));
+                  dev.log('@TaskErrorState');
+                  return Center(child: Text(state.failure.message));
                 } else {
                   return const Center(child: Text('No tasks available'));
                 }

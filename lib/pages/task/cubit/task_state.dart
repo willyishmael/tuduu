@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:tuduu/data/model/task.dart';
+import 'package:tuduu/failure/failure.dart';
 
 sealed class TaskState extends Equatable {
   const TaskState();
@@ -21,9 +22,9 @@ final class TaskLoadedState extends TaskState {
 }
 
 final class TaskErrorState extends TaskState {
-  final String errorMessage;
-  const TaskErrorState({required this.errorMessage});
+  final Failure failure;
+  const TaskErrorState({required this.failure});
 
   @override
-  List<Object?> get props => [errorMessage];
+  List<Object?> get props => [failure];
 }
